@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-edit-plist-file"
+    version="0.0.3">
+    
+    <name>Edit Plist file</name>
+    <description>A Cordova plugin to edit the iOS *-Info.plist file without manually modifying it.</description>
+    <author>Kyle Choo</author>
+    <keywords>cordova,ios,NSAllowArbitraryLoads</keywords>
+    <license>MIT</license>
+    
+    <engines>
+        <!-- Requires > 3.3.* because of the custom Framework tag for iOS [CB-5238] -->
+        <!-- Requires > 3.5.0 because of the custom Framework tag for Android [CB-6698] -->
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
+
+    <!-- ios -->
+    <platform name="ios">
+        <!-- iOS Disable NSAllowArbitraryLoads -->
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <key>NSAllowsArbitraryLoads</key>
+            <false/>
+        </config-file>
+    </platform>
+</plugin>
